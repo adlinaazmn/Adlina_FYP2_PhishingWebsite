@@ -17,14 +17,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script>
         // JavaScript to redirect when the form is submitted
         function redirectToVideo(event) {
-            event.preventDefault();
-            const age = document.getElementById('age').value;
-            if (age && age > 0) {
-                window.location.href = "https://youtu.be/XBkzBrXlle0?si=ZsW0yBrxRsr3QD1B";
-            } else {
-                alert("Please enter a valid age.");
-            }
-        }
+    event.preventDefault();
+    const age = document.getElementById('age').value;
+    if (age && age > 0) {
+        // Send GA event manually
+        gtag('event', 'click', { 'event_category': 'button', 'event_label': 'Submit Button' });
+
+        // Delay redirect to ensure event is sent
+        setTimeout(() => {
+            window.location.href = "https://youtu.be/XBkzBrXlle0?si=ZsW0yBrxRsr3QD1B";
+        }, 300); // 300ms delay
+    } else {
+        alert("Please enter a valid age.");
+    }
+}
     </script>
 </head>
 <body>
@@ -48,7 +54,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <label for="age">Age</label>
                     <input type="number" id="age" name="age" placeholder="Enter your age" required>
                 </div>
-                <button  onclick="gtag('event', 'click', { 'event_category': 'button', 'event_label': 'Submit Button' });">Redeem the Voucher Now!</button>
+                <button type="submit">Redeem the Voucher Now!</button>
             </form>
         </div>
     </div>
