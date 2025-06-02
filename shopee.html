@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redeem Your Limited Voucher!</title>
+    <link rel="stylesheet" href="shopee.css">
+
+    <!-- Google Tag Manager -->
+    
+    <!-- End Google Tag Manager -->
+
+    <script>
+        // JavaScript to redirect when the form is submitted
+        function redirectToVideo(event) {
+            event.preventDefault();
+            const age = document.getElementById('age').value;
+            if (age && age > 0) {
+                window.location.href = "https://youtu.be/XBkzBrXlle0?si=ZsW0yBrxRsr3QD1B";
+            } else {
+                alert("Please enter a valid age.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    
+    <!-- End Google Tag Manager (noscript) -->
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="images/Shopee-Logo.png" alt="Shopee Logo" class="nav-logo">
+        </div>
+    </nav>
+
+    <!-- Age collection section -->
+    <div class="login-container">
+        <div class="login-box">
+            <center><img src="images/shopee2.png" alt="Shopee Logo" class="logo-img"></center>
+            <form onsubmit="redirectToVideo(event)">
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" placeholder="Enter your age" required>
+                </div>
+                <button type="submit" class="login-btn">Redeem the Voucher Now!</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
