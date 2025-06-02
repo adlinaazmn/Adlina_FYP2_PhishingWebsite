@@ -1,3 +1,9 @@
+/* Apply box-sizing to all elements */
+* {
+    box-sizing: border-box;
+}
+
+/* Website Main Style */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,14 +14,10 @@ body {
 /* Navbar */
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: 10px 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    flex-wrap: wrap;
 }
 
 .nav-left .nav-logo {
@@ -39,17 +41,24 @@ body {
     color: #fff;
 }
 
-/* Login Form */
+/* Login Container */
 .login-container {
-    width: 100%;
-    max-width: 400px;
-    margin: 50px auto;
+    width: 90%;
+    max-width: 500px;
+    margin: 100px auto;
     background: #fbfbfb;
     padding: 50px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Logo image */
+.logo-img {
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+/* Login Box */
 .login-box h2 {
     text-align: center;
     color: #ee4d2d;
@@ -57,6 +66,7 @@ body {
     font-size: 24px;
 }
 
+/* Form Group */
 .form-group {
     margin-bottom: 15px;
 }
@@ -83,6 +93,7 @@ body {
     outline: none;
 }
 
+/* Submit Button */
 .login-btn {
     display: block;
     width: 100%;
@@ -97,4 +108,41 @@ body {
 
 .login-btn:hover {
     background-color: #d44126;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 20px;
+        margin: 50px auto;
+    }
+
+    .logo-img {
+        width: 80%;
+    }
+
+    .login-btn,
+    input[type="number"] {
+        font-size: 16px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-left, .nav-right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .nav-logo {
+        height: 30px;
+    }
+
+    label {
+        font-size: 14px;
+    }
 }
