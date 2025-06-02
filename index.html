@@ -24,12 +24,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         // Send GA event manually
         gtag('event', 'click', { 'event_category': 'button', 'event_label': 'Submit Button' });
 
-        // Delay redirect to ensure event is sent
-        setTimeout(() => {
-            window.location.href = "https://youtu.be/XBkzBrXlle0?si=ZsW0yBrxRsr3QD1B";
-        }, 300); // 300ms delay
-    } else {
-        alert("Please enter a valid age.");
+        // Open video in new tab
+                window.open("https://youtu.be/XBkzBrXlle0?si=ZsW0yBrxRsr3QD1B", "_blank");
+            } else {
+                alert("Please enter a valid age.");
     }
 }
     </script>
