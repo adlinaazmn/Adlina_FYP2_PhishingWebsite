@@ -20,14 +20,6 @@
     function redirectToVideo(event) {
       event.preventDefault();
 
-      // Google Analytics
-      if (typeof gtag === 'function') {
-        gtag('event', 'click', {
-          'event_category': 'button',
-          'event_label': 'Voucher Button Click'
-        });
-      }
-
       // Open YouTube video in a new tab
      window.location.href = "https://youtu.be/XBkzBrXlle0?si=ZsW0yBrxRsr3QD1B";
     }
@@ -59,9 +51,15 @@
   <div class="login-container">
     <div class="login-box">
       <center><img src="images/shopee2.png" alt="Shopee Logo" class="logo-img" /></center>
-      <button class="login-btn">RM30 off is available! 💳</button>
-      <button class="login-btn">Hari Raya shopping deals! RM20 off! 🎉</button>
-      <button class="login-btn">🚗 Free Shipping deals are now available!</button>
+      <form onsubmit="redirectToVideo(event)">
+        <button class="login-btn">RM30 off is available! 💳</button>
+      </form>
+      <form onsubmit="redirectToVideo(event)">
+        <button class="login-btn">Hari Raya shopping deals! RM20 off! 🎉</button>
+      </form>
+      <form onsubmit="redirectToVideo(event)">
+        <button class="login-btn">🚗 Free Shipping deals are now available!</button>
+      </form>
     </div>
   </div>
 </body>
