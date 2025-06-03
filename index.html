@@ -1,56 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopee Malaysia | Redeem Your Limited Voucher</title>
-    <link rel="stylesheet" href="shopee.css">
-    <link rel="icon" type="image/png" href="images/webpee.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Redeem Your Limited Voucher!</title>
+  <link rel="stylesheet" href="shopee.css" />
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MCNBDZYRBY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TGXCJ3LL');
+  </script>
+  <!-- End Google Tag Manager -->
 
-  gtag('config', 'G-MCNBDZYRBY');
-</script>
+  <script>
+    function redirectToVideo(event) {
+      event.preventDefault();
 
-    <script>
-        // JavaScript to redirect when the form is submitted
-        function redirectToVideo(event) {
-    event.preventDefault();
-    const age = document.getElementById('age').value;
-    if (age && age > 0) {
-        // Send GA event manually
-        gtag('event', 'click', { 'event_category': 'button', 'event_label': 'Submit Button' });
+      // Google Analytics
+      if (typeof gtag === 'function') {
+        gtag('event', 'click', {
+          'event_category': 'button',
+          'event_label': 'Voucher Button Click'
+        });
+      }
 
-        // Open video in new tab
-                window.open("https://youtu.be/XBkzBrXlle0?si=ZsW0yBrxRsr3QD1B", "_blank");
-            } else {
-                alert("Please enter a valid age");
+      // Open YouTube video in a new tab
+      window.open("https://youtu.be/XBkzBrXlle0?si=ZsW0yBrxRsr3QD1B", "_blank");
     }
-}
-    </script>
+
+    // Wait for the DOM to load
+    document.addEventListener('DOMContentLoaded', function() {
+      const buttons = document.querySelectorAll('.login-btn');
+      buttons.forEach(button => {
+        button.addEventListener('click', redirectToVideo);
+      });
+    });
+  </script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-left">
-            <img src="images/Shopee-Logo.png" alt="Shopee Logo" class="nav-logo">
-        </div>
-    </nav>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGXCJ3LL"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Form Submission section -->
-    <div class="login-container">
-        <div class="login-box">
-            <center><img src="images/shopee2.png" alt="Shopee Logo" class="logo-img"></center>
-            <form onsubmit="redirectToVideo(event)">
-                <button type="submit" class="login-btn">RM30 off is available! 💳</button>
-                <button type="submit" class="login-btn">Hari Raya shopping deals! RM20 off! 🎉</button>
-                <button type="submit" class="login-btn">🚗 Free Shipping deals are now available!</button>
-            </form>
-        </div>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="images/Shopee-Logo.png" alt="Shopee Logo" class="nav-logo" />
     </div>
+  </nav>
+
+  <!-- Buttons Section -->
+  <div class="login-container">
+    <div class="login-box">
+      <center><img src="images/shopee2.png" alt="Shopee Logo" class="logo-img" /></center>
+      <button class="login-btn">RM30 off is available! 💳</button>
+      <button class="login-btn">Hari Raya shopping deals! RM20 off! 🎉</button>
+      <button class="login-btn">🚗 Free Shipping deals are now available!</button>
+    </div>
+  </div>
 </body>
 </html>
