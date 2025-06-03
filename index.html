@@ -1,66 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Redeem Your Limited Voucher!</title>
-  <link rel="stylesheet" href="shopee.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redeem Your Limited Voucher!</title>
+    <link rel="stylesheet" href="shopee.css">
 
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TGXCJ3LL');
-  </script>
-  <!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TGXCJ3LL');</script>
+    <!-- End Google Tag Manager -->
 
-  <script>
+   <script>
     function redirectToVideo(event) {
-      event.preventDefault();
+        event.preventDefault();
+        const age = document.getElementById('age').value;
+        const resultDiv = document.getElementById('video-result');
 
-      // Open YouTube video in a new tab
-     window.location.href = "https://youtu.be/XBkzBrXlle0?si=ZsW0yBrxRsr3QD1B";
+        if (age && age > 0) {
+            // Send GA event manually
+            if (typeof gtag === 'function') {
+                gtag('event', 'click', {
+                    'event_category': 'button',
+                    'event_label': 'Submit Button'
+                });
+            }
+
+            // Open video in new tab
+                window.open("https://youtu.be/XBkzBrXlle0?si=ZsW0yBrxRsr3QD1B", "_blank");
+            } else {
+                alert("Please enter a valid age.");
+        }
     }
+</script>
 
-    // Wait for the DOM to load
-    document.addEventListener('DOMContentLoaded', function() {
-      const buttons = document.querySelectorAll('.login-btn');
-      buttons.forEach(button => {
-        button.addEventListener('click', redirectToVideo);
-      });
-    });
-  </script>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGXCJ3LL"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGXCJ3LL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-  <nav class="navbar">
-    <div class="nav-left">
-      <img src="images/Shopee-Logo.png" alt="Shopee Logo" class="nav-logo" />
-    </div>
-  </nav>
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="images/Shopee-Logo.png" alt="Shopee Logo" class="nav-logo">
+        </div>
+    </nav>
 
-  <!-- Buttons Section -->
-  <div class="login-container">
-    <div class="login-box">
-      <center><img src="images/shopee2.png" alt="Shopee Logo" class="logo-img" /></center>
-      <form onsubmit="redirectToVideo(event)">
-        <button class="login-btn">RM30 off is available! 💳</button>
-      </form>
-      <form onsubmit="redirectToVideo(event)">
-        <button class="login-btn">Hari Raya shopping deals! RM20 off! 🎉</button>
-      </form>
-      <form onsubmit="redirectToVideo(event)">
-        <button class="login-btn">🚗 Free Shipping deals are now available!</button>
-      </form>
+    <!-- Age collection section -->
+    <div class="login-container">
+        <div class="login-box">
+            <center><img src="images/shopee2.png" alt="Shopee Logo" class="logo-img"></center>
+            <form onsubmit="redirectToVideo(event)">
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" placeholder="Enter your age" required>
+                </div>
+                <button type="submit" class="login-btn">Redeem the Voucher Now!</button>
+            </form>
+        </div>
     </div>
-  </div>
 </body>
 </html>
